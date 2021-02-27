@@ -32,6 +32,7 @@ function formatDate(timestamp){
     let descriptionElement = document.querySelector("#description");
     let humidityElement = document.querySelector("#humidity");
     let windElement = document.querySelector("#wind");
+    let percipitationElement = document.querySelector ("#percipitation")
     let dateElement = document.querySelector("#date");
     let iconElement = document.querySelector("#icon");
 
@@ -42,10 +43,11 @@ function formatDate(timestamp){
     descriptionElement.innerHTML = response.data.weather[0].description;
     humidityElement.innerHTML = response.data.main.humidity;
     windElement.innerHTML = Math.round(response.data.wind.speed);
+    percipitationElement.innerHTML =response.data.main.percipitation; 
     dateElement.innerHTML = formatDate(response.data.dt * 1000);
     iconElement.setAttribute(
         "src",
-        `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+        `  <i class="fas fa-cloud-sun"></i>`);
         iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
